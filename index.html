@@ -1,0 +1,682 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Something for Papa 💙</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=Pacifico&display=swap');
+
+:root {
+  --blue: #8fc5ef;
+  --light: #e5f3ff;
+  --navy: #315b85;
+  --dark: #254565;
+  --cream: #fffdf6;
+  --pink: #f5cbd9;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #eaf5ff;
+  color: var(--dark);
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.page {
+  width: min(900px, 92%);
+  margin: auto;
+  padding: 35px 0 55px;
+}
+
+.top-note {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: #779cbe;
+  margin-bottom: 16px;
+  font-weight: 800;
+}
+
+.hero {
+  text-align: center;
+  padding: 35px 15px 28px;
+  position: relative;
+}
+
+.hero .tiny {
+  font-size: 35px;
+}
+
+.hero h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(38px, 8vw, 65px);
+  color: var(--navy);
+  font-weight: 400;
+  margin: 10px 0;
+  line-height: 1.35;
+}
+
+.hero p {
+  font-size: 15px;
+  color: #6485a6;
+}
+
+.sticker {
+  display: inline-block;
+  background: white;
+  border: 2px dashed #9fc8e9;
+  border-radius: 14px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  transform: rotate(-4deg);
+  margin-top: 22px;
+}
+
+.decor {
+  position: absolute;
+  font-size: 25px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.d1 { top: 15px; left: 8%; }
+.d2 { top: 30px; right: 10%; animation-delay: 1s; }
+.d3 { bottom: 15px; left: 18%; animation-delay: 1.5s; }
+.d4 { bottom: 10px; right: 18%; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-10px) rotate(8deg); }
+}
+
+.paper {
+  background: var(--cream);
+  border: 2px solid #d1e6f7;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 5px 6px 0 #c5def1;
+  position: relative;
+}
+
+.section-title {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  font-size: 25px;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.envelope-area {
+  text-align: center;
+  padding: 25px 0 10px;
+}
+
+.envelope {
+  width: 190px;
+  height: 125px;
+  margin: 30px auto 20px;
+  background: #a7d3f4;
+  position: relative;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #77afd9;
+  transition: transform .3s;
+}
+
+.envelope:hover {
+  transform: translateY(-6px) rotate(-2deg);
+}
+
+.envelope::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 95px solid transparent;
+  border-right: 95px solid transparent;
+  border-top: 72px solid #c5e3fa;
+  z-index: 2;
+}
+
+.envelope::after {
+  content: '💙';
+  position: absolute;
+  top: 52px;
+  left: 76px;
+  font-size: 38px;
+  z-index: 3;
+}
+
+.envelope-label {
+  font-size: 13px;
+  font-weight: 800;
+  color: #6389ac;
+}
+
+.letter {
+  display: none;
+  background: #fffefa;
+  border: 1px dashed #b6cfe4;
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 25px;
+  text-align: left;
+  line-height: 1.9;
+  font-size: 14px;
+  animation: appear .6s ease;
+}
+
+.letter.show {
+  display: block;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.letter h3 {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  font-size: 23px;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.letter p {
+  margin-bottom: 12px;
+}
+
+.signature {
+  font-family: 'Pacifico', cursive;
+  color: var(--navy);
+  font-size: 20px;
+  margin-top: 18px;
+}
+
+button.main-btn {
+  border: none;
+  background: var(--navy);
+  color: white;
+  padding: 12px 23px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 800;
+  margin-top: 15px;
+  transition: .2s;
+}
+
+button.main-btn:hover {
+  background: #477cae;
+  transform: scale(1.04);
+}
+
+.messages {
+  margin-top: 35px;
+}
+
+.message-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+}
+
+.message-card {
+  min-height: 120px;
+  border: 2px dashed #a9cce9;
+  border-radius: 15px;
+  padding: 17px 10px;
+  background: #eaf5ff;
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 13px;
+  transition: .2s;
+}
+
+.message-card:hover {
+  transform: translateY(-5px) rotate(-2deg);
+  background: #dceeff;
+}
+
+.message-card span {
+  display: block;
+  font-size: 25px;
+  margin-bottom: 9px;
+}
+
+.hidden-message {
+  display: none;
+  background: #f0f7ff;
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 15px;
+  font-size: 14px;
+  line-height: 1.7;
+  text-align: center;
+  animation: appear .4s ease;
+}
+
+.hidden-message.show {
+  display: block;
+}
+
+.game {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.heart-game {
+  font-size: 35px;
+  margin: 15px 0;
+}
+
+.heart-game button {
+  background: white;
+  border: 2px solid #c4dff5;
+  border-radius: 14px;
+  padding: 12px 17px;
+  font-size: 25px;
+  margin: 5px;
+  transition: .2s;
+}
+
+.heart-game button:hover {
+  transform: scale(1.2);
+}
+
+#score {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-top: 12px;
+}
+
+.surprise {
+  margin-top: 35px;
+  text-align: center;
+  background: #dceeff;
+  border-radius: 20px;
+  padding: 28px 15px;
+  border: 2px dashed #9ec8eb;
+}
+
+.surprise h2 {
+  font-family: 'Pacifico', cursive;
+  font-weight: 400;
+  color: var(--navy);
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#surprise-text {
+  display: none;
+  margin-top: 20px;
+  line-height: 1.8;
+  font-size: 15px;
+  animation: appear .5s ease;
+}
+
+#surprise-text.show {
+  display: block;
+}
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #7899b8;
+  margin-top: 35px;
+  line-height: 2;
+}
+
+.footer span {
+  color: #e59ab5;
+}
+
+.confetti {
+  position: fixed;
+  top: -20px;
+  z-index: 999;
+  pointer-events: none;
+  animation: fall 3s linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+@media(max-width:600px) {
+  .page {
+    width: 92%;
+    padding-top: 20px;
+  }
+
+  .paper {
+    padding: 20px 15px;
+  }
+
+  .message-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .decor {
+    font-size: 19px;
+  }
+
+  .letter {
+    padding: 17px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+  <div class="top-note">A LITTLE DIGITAL GIFT · MADE WITH LOVE</div>
+
+  <header class="hero">
+    <span class="decor d1">⭐</span>
+    <span class="decor d2">☁️</span>
+    <span class="decor d3">💌</span>
+    <span class="decor d4">🩵</span>
+
+    <div class="tiny">🧸</div>
+    <h1>Happy Father's Day!</h1>
+    <p>A tiny website for my favorite superhero.</p>
+    <div class="sticker">SPECIAL DELIVERY FOR PAPA ✉️</div>
+  </header>
+
+  <!-- LETTER SECTION -->
+  <section class="paper envelope-area">
+    <div class="section-title">You've got mail! 💌</div>
+    <p style="font-size:13px;color:#7899b8">
+      Papa, there's something I want to tell you...
+    </p>
+
+    <div class="envelope" id="envelope"
+         onclick="openLetter()"></div>
+
+    <div class="envelope-label" id="envelope-label">
+      CLICK THE ENVELOPE TO OPEN ♡
+    </div>
+
+    <div class="letter" id="letter">
+      <h3>Dear Papa,</h3>
+
+      <p>
+        Happy Father's Day! 💙
+      </p>
+
+      <p>
+        First of all, congratulations on having such a wonderful
+        daughter. HAHAHA. Just kidding, Pa!
+      </p>
+
+      <p>
+        Thank you for everything you've done for me.
+        Thank you for working hard, taking care of me,
+        supporting me, and always trying your best to give
+        me the things I need.
+      </p>
+
+      <p>
+        I know I don't always say it out loud, and sometimes
+        I might be a little stubborn, quiet, or difficult to understand.
+        But please know that I appreciate you more than
+        I can put into words.
+      </p>
+
+      <p>
+        I hope Papa always stays healthy, happy, and surrounded
+        by good things. I hope all your hard work brings you
+        lots of happiness, too.
+      </p>
+
+      <p>
+        Thank you for being my Papa.
+        I love you, even when I don't say it every day.
+      </p>
+
+      <div class="signature">
+        With lots of love,<br>
+        Your favorite daughter ♡
+      </div>
+    </div>
+
+    <button class="main-btn" onclick="openLetter()">
+      Open my letter ♡
+    </button>
+  </section>
+
+  <!-- LITTLE MESSAGES -->
+  <section class="messages">
+    <div class="section-title">A few little reminders...</div>
+    <p style="text-align:center;font-size:13px;color:#7899b8;margin-bottom:18px">
+      Click each little card. They're all for you!
+    </p>
+
+    <div class="message-grid">
+
+      <button class="message-card"
+        onclick="showMessage(0)">
+        <span>🫶</span>
+        A little thank you
+      </button>
+
+      <button class="message-card"
+        onclick="showMessage(1)">
+        <span>⭐</span>
+        My favorite thing
+      </button>
+
+      <button class="message-card"
+        onclick="showMessage(2)">
+        <span>🌷</span>
+        A little wish
+      </button>
+
+      <button class="message-card"
+        onclick="showMessage(3)">
+        <span>🐻</span>
+        A tiny confession
+      </button>
+
+      <button class="message-card"
+        onclick="showMessage(4)">
+        <span>💌</span>
+        One more thing
+      </button>
+
+      <button class="message-card"
+        onclick="showMessage(5)">
+        <span>🎀</span>
+        Your special title
+      </button>
+
+    </div>
+
+    <div class="hidden-message" id="hidden-message"></div>
+  </section>
+
+  <!-- MINI GAME -->
+  <section class="paper game">
+    <div class="section-title">A tiny game for Papa! 🎮</div>
+    <p style="font-size:13px;color:#7899b8">
+      Collect 5 hearts to unlock a special message!
+    </p>
+
+    <div class="heart-game">
+      <button onclick="collectHeart()">💙</button>
+      <button onclick="collectHeart()">🩵</button>
+      <button onclick="collectHeart()">💗</button>
+      <button onclick="collectHeart()">💙</button>
+      <button onclick="collectHeart()">🩵</button>
+    </div>
+
+    <div id="score">Hearts collected: 0 / 5</div>
+    <div class="hidden-message" id="game-result">
+      YAY! You collected all the love! 🎉
+      <br><br>
+      Papa, you deserve all the happiness in the world.
+      Sending you 5 extra virtual hugs! 🫂💙
+    </div>
+  </section>
+
+  <!-- FINAL SURPRISE -->
+  <section class="surprise">
+    <div style="font-size:35px">🎁</div>
+    <h2>One last surprise...</h2>
+    <p style="font-size:13px;color:#6485a6">
+      I saved something special just for you.
+    </p>
+
+    <button class="main-btn" onclick="revealSurprise()">
+      Click for your surprise!
+    </button>
+
+    <div id="surprise-text">
+      <div style="font-size:38px">💙🧸💙</div>
+      <h2>HAPPY FATHER'S DAY, PAPA!</h2>
+      <p>
+        No matter how old I get, I'll always be
+        your little girl.
+      </p>
+      <p style="font-weight:900;margin-top:12px">
+        I LOVE YOU SO MUCH! ♡
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    Made with ♡, a little bit of creativity, and lots of love.<br>
+    Especially for Papa · 2026
+    <br>
+    <span>psst... you're the best, Pa! ♡</span>
+  </footer>
+
+</div>
+
+<script>
+
+// OPEN LETTER
+function openLetter() {
+  const letter = document.getElementById('letter');
+  const label = document.getElementById('envelope-label');
+
+  letter.classList.toggle('show');
+
+  label.innerText = letter.classList.contains('show')
+    ? 'A LETTER FULL OF LOVE ♡'
+    : 'CLICK THE ENVELOPE TO OPEN ♡';
+
+  if (letter.classList.contains('show')) {
+    letter.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest'
+    });
+    makeConfetti(12);
+  }
+}
+
+// HIDDEN MESSAGES
+const messages = [
+  "Thank you for all the little and big things you do. Even the things I don't always notice, I appreciate them. 💙",
+
+  "My favorite thing? Knowing I have a Papa who always tries his best for me. ⭐",
+
+  "I wish you endless happiness, good health, peaceful days, and many reasons to smile. 🌷",
+
+  "Sometimes I'm too shy to say sweet things directly, so I made a whole website instead. HAHAHA! 🐻",
+
+  "Whatever happens, you'll always be someone I'll be grateful to have in my life. 💌",
+
+  "Officially awarded: THE BEST PAPA EVER. No competition, no debate, no appeal. 🎀"
+];
+
+function showMessage(index) {
+  const box = document.getElementById('hidden-message');
+
+  box.innerHTML = messages[index];
+  box.classList.add('show');
+
+  box.scrollIntoView({
+    behavior: 'smooth',
+    block: 'nearest'
+  });
+}
+
+// MINI GAME
+let hearts = 0;
+
+function collectHeart() {
+  if (hearts >= 5) return;
+
+  hearts++;
+
+  document.getElementById('score').innerText =
+    'Hearts collected: ' + hearts + ' / 5';
+
+  makeConfetti(5);
+
+  if (hearts === 5) {
+    document.getElementById('game-result').classList.add('show');
+    document.getElementById('score').innerText =
+      'ALL HEARTS COLLECTED! YOU DID IT! 💙';
+  }
+}
+
+// FINAL SURPRISE
+function revealSurprise() {
+  const surprise = document.getElementById('surprise-text');
+
+  surprise.classList.add('show');
+  makeConfetti(65);
+
+  surprise.scrollIntoView({
+    behavior: 'smooth',
+    block: 'nearest'
+  });
+}
+
+// CONFETTI
+function makeConfetti(amount) {
+  const emojis = ['💙', '🩵', '⭐', '✨', '💗', '🎀'];
+
+  for (let i = 0; i < amount; i++) {
+    const piece = document.createElement('div');
+
+    piece.className = 'confetti';
+    piece.innerText =
+      emojis[Math.floor(Math.random() * emojis.length)];
+
+    piece.style.left = Math.random() * 100 + 'vw';
+    piece.style.fontSize = (12 + Math.random() * 18) + 'px';
+    piece.style.animationDuration = (2 + Math.random() * 2) + 's';
+
+    document.body.appendChild(piece);
+
+    setTimeout(() => piece.remove(), 4500);
+  }
+}
+
+</script>
+</body>
+</html>
